@@ -2,10 +2,10 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const MovieScreen = (props) => {
-  const { watchList, page, setPage, movieList } = props;
+  const { watchList, page, setPage, movieList, addMovie } = props;
 
   let movieDisplay = movieList.map((movie) => {
-    return <MovieCard movie={movie} />;
+    return <MovieCard movie={movie} addMovie={addMovie} />;
   });
   return (
     <div className="page">
