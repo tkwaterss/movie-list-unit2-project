@@ -5,10 +5,19 @@ import Header from "./components/Header";
 import MovieScreen from "./components/MovieScreen";
 import Watchlist from "./components/Watchlist";
 
-function App(props) {
+function App() {
   const [movieList, setMovieList] = useState([]);
   const [watchList, setWatchList] = useState([]);
   const [page, setPage] = useState(1);
+
+  const addMovie = (movie) => setWatchList([...watchList, movie])
+
+  const removeMovie = (movie) => {
+    const newState = watchList.filter(mov => {
+      return mov !== movie
+    })
+    setWatchList(newState);
+  }
 
   const getData = () => {
     axios
@@ -20,12 +29,6 @@ function App(props) {
         setMovieList(res.data.results);
       });
   };
-
-  const addMovie = (movie) => {
-    setWatchList((prevMovies) => {
-      return [...prevMovies, movie]
-    })
-  }
 
   useEffect(() => {
     getData();
@@ -41,8 +44,9 @@ function App(props) {
           setPage={setPage}
           movieList={movieList}
           addMovie={addMovie}
+          removeMovie={removeMovie}
         />
-        <Watchlist watchList={watchList}/>
+        <Watchlist watchList={watchList} removeMovie={removeMovie}/>
       </main>
     </div>
   );

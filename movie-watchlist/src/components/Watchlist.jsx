@@ -2,20 +2,24 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const Watchlist = (props) => {
-    const {watchList} = props;
+  const { watchList, removeMovie } = props;
 
-    let movieDisplay = watchList.map(movie => {
-        return <MovieCard movie={movie}/>
-    })
-
+  const movieDisplay = watchList.map((movie) => {
     return (
-        <div className="watchlist">
-            <h1>My Watchlist</h1>
-            <div className="movie-container">
-                {movieDisplay}
-            </div>
-        </div>
-    )
-}
+      <MovieCard
+        movie={movie}
+        removeMovie={removeMovie}
+        watchList={watchList}
+      />
+    );
+  });
+
+  return (
+    <div className="watchlist">
+      <h1>My Watchlist</h1>
+      <div className="movie-container">{movieDisplay}</div>
+    </div>
+  );
+};
 
 export default Watchlist;
