@@ -2,7 +2,7 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const MovieScreen = (props) => {
-  const { watchList, page, setPage, movieList, addMovie, removeMovie } = props;
+  const { watchList, page, setPage, movieList, addMovie, removeMovie, displayMovie } = props;
 
   const decrement = () => {
     return setPage(page - 1);
@@ -20,6 +20,7 @@ const MovieScreen = (props) => {
         addMovie={addMovie}
         removeMovie={removeMovie}
         watchList={watchList}
+        displayMovie={displayMovie}
       />
     );
   });

@@ -1,10 +1,10 @@
 import React from "react";
 
 const MovieCard = (props) => {
-  const { movie, addMovie, removeMovie, watchList } = props;
+  const { movie, addMovie, removeMovie, watchList, displayMovie } = props;
 
   const inWatchList = watchList.filter((mov) => {
-    return (mov.id === movie.id);
+    return mov.id === movie.id;
   });
 
   const button =
@@ -17,8 +17,13 @@ const MovieCard = (props) => {
   return (
     <div className="movie-card">
       <div>
-        <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />
-        <h3>{movie.original_title}</h3> 
+        <img
+          className="card-image"
+          onClick={() => displayMovie(movie)}
+          src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+          alt="Movie Poster"
+        />
+        <h3>{movie.original_title}</h3>
       </div>
       {button}
     </div>

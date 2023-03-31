@@ -2,7 +2,7 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const Watchlist = (props) => {
-  const { watchList, removeMovie } = props;
+  const { watchList, removeMovie, displayMovie } = props;
 
   const movieDisplay = watchList.map((movie) => {
     return (
@@ -11,6 +11,7 @@ const Watchlist = (props) => {
         movie={movie}
         removeMovie={removeMovie}
         watchList={watchList}
+        displayMovie={displayMovie}
       />
     );
   });
