@@ -15,6 +15,7 @@ const MovieScreen = (props) => {
   const movieDisplay = movieList.map((movie) => {
     return (
       <MovieCard
+        key={movie.id}
         movie={movie}
         addMovie={addMovie}
         removeMovie={removeMovie}

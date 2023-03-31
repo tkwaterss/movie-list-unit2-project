@@ -7,6 +7,7 @@ const Watchlist = (props) => {
   const movieDisplay = watchList.map((movie) => {
     return (
       <MovieCard
+        key={movie.id}
         movie={movie}
         removeMovie={removeMovie}
         watchList={watchList}
