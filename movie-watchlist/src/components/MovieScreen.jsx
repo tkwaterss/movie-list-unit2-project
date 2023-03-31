@@ -26,10 +26,11 @@ const MovieScreen = (props) => {
   return (
     <div className="page">
       <h1>Tobin's Movie Theatre</h1>
-      <h3>Add a movie to your watchlist</h3>
+      <h3>Add movies to your watchlist</h3>
       <div className="btn-container">
-        <button onClick={page !== 1 && decrement}>Previous</button>
-        <button onClick={increment}>Next</button>
+        <button className="page-btn" onClick={page > 1 ? decrement: undefined}>-</button>
+        <h3>Page {page}</h3>
+        <button className="page-btn" onClick={increment}>+</button>
       </div>
       <div className="movie-container">{movieDisplay}</div>
     </div>
